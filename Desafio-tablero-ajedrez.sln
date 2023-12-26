@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33122.133
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desafio-tablero-ajedrez", "Desafio-tablero-ajedrez.csproj", "{E144C2FE-3025-4161-A814-E4035B3797C0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E144C2FE-3025-4161-A814-E4035B3797C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E144C2FE-3025-4161-A814-E4035B3797C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E144C2FE-3025-4161-A814-E4035B3797C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E144C2FE-3025-4161-A814-E4035B3797C0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4167CD9E-3CC7-49F6-BE67-C299AE59772F}
+	EndGlobalSection
+EndGlobal
