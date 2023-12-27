@@ -19,27 +19,43 @@ namespace Desafio_tablero_ajedrez
 
         public void RellenarTablero()
         {
-            
+            //Creamos una lista de filas
+            List<int> filas = new List<int>();
+
+            //rellenamos el tablero de azul
             for (int i = 0; i < longitud; i++)
             {
-                int ContadorRojo = 0;
+                filas.Add(i);
                 for (int o = 0; o < longitud; o++)
                 {
-                    /*if ((i+o)%2==0)tablero[i, o] = "R";  //crea un tablero de ajedrez normal
-                    else tablero[i, o] = "A";*/
-
-
-                    ContadorRojo++; //aumentamos el contador
-
-                    //crea un tablero de ajedrez con una escalera de Rojos
-                    //evitando al mismo tiempo que dos filas o columnas tengan la misma cantidad de espacios rojos
-                    if (i >= ContadorRojo) tablero[i, o] = "R"; 
-                    else tablero[i, o] = "A";
-
+                    tablero[i, o] = "A";
 
                 }
             }
+
+            //agregamos los rojos en espacios aleatorios
+            Random randy = new Random();
+
+            for (int i = 0; i < longitud; i++)
+            {
+                int indice = filas[randy.Next(filas.Count)];
+                for (int o = 0; o <= indice; o++)
+                {
+                    bool incompleto = true;
+                    while (incompleto)
+                    {
+                        int posicion = randy.Next(longitud);
+                        if(tablero[i, posicion] != "R")
+                        {
+                            tablero[i, posicion] = "R";
+                            incompleto = false;
+                        }
+                    }
+                }
+                filas.Remove(indice);
+            }
         }
+
 
 
         public void MostrarTablero() 
