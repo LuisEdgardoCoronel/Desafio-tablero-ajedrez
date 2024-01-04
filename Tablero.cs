@@ -18,6 +18,7 @@ namespace Desafio_tablero_ajedrez
         {
             this.longitud = longitud;
             this.tablero = new string[longitud,longitud];
+
         }
 
         
@@ -26,68 +27,32 @@ namespace Desafio_tablero_ajedrez
         //metodo principal para rellenar el tablero con el patron de colores
         public void RellenarTablero()
         {
-            
-            int cantidadColorSeguido = 1;
-            
-
-            for (int i = 0; i < longitud; i++)
+            for (int fila = 0; fila < longitud; fila++)
             {
-                // mientras recorremos las filas, alternamos entre iniciar con color1 o color2 en cada una
-                if (i%2==0)
+                int ContadorEspaciosRojos = 1;
+                for (int columna = 0; columna < longitud; columna++)
                 {
-                    RellenarFila(i, cantidadColorSeguido, this.color1, this.color2);
-                }
-                else
-                {
-                    RellenarFila(i, cantidadColorSeguido, this.color2, this.color1);
-                    cantidadColorSeguido++;
+                    //crea un tablero de ajedrez con una escalera de Rojos
+                    //evitando al mismo tiempo que dos filas o columnas tengan la misma cantidad de espacios rojos
+                    if (fila+1 >= ContadorEspaciosRojos) tablero[fila, columna] =  color1;
+                    else tablero[fila, columna] = color2;
+
+                    ContadorEspaciosRojos++; //aumentamos el contado
                 }
 
             }
         }
 
 
-
-
-        public void RellenarFila(int fila, int cantidadColorSeguido, string color, string color2) 
-        {
-            //almacenamos la cantidad de colores que van seguidos para no perder el valor
-            int aux = cantidadColorSeguido;
-            int cantidadColor2 = 0;
-
-            //condicion para modificar el patron. NO es necesaria
-            if (longitud > 5 && cantidadColorSeguido == longitud / 2) cantidadColorSeguido /= 2;
-
-            //recorremos la fila, agregando los colores en las diferentes columnas
-            for (int a = 0; a < longitud; a++)
-            {
-                if (cantidadColorSeguido > 0) tablero[fila, a] = color;
-                else tablero[fila, a] = color2;
-
-                cantidadColorSeguido--;
-
-                //cuando el segundo color se aplica en igual cantidad que el primero, continua de nuevo el primer color
-                if (cantidadColor2 == aux)
-                {
-                    cantidadColorSeguido = aux;
-                    cantidadColor2 = 0;
-                }
-
-                //contamos la cantidad de cuadros que debe tener el segundo color
-                if (cantidadColorSeguido <= 0) cantidadColor2++;
-                
-
-            }
-        }
 
         // Método para mostrar el tablero en la consola
         public void MostrarTablero() 
         {
-            for (int i = 0; i < this.tablero.GetLength(0); i++)
+            for (int fila = 0; fila < this.tablero.GetLength(0); fila++)
             {
-                for (int o = 0; o < this.tablero.GetLength(1); o++)
+                for (int columna = 0; columna < this.tablero.GetLength(1); columna++)
                 {
-                    Console.Write(tablero[i, o]+" ");
+                    Console.Write(tablero[fila, columna]+" ");
                 }
                 Console.WriteLine();
             }
